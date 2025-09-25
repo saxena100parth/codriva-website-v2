@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: #24292f;
+        background-color: #ffffff;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        cursor: none;
+        /* Hide default cursor */
+    }
+
+    /* Show default cursor for text inputs and textareas */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        cursor: text !important;
+    }
+
+    /* Custom cursor styles */
+    .custom-cursor {
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        mix-blend-mode: difference;
+    }
+
+    /* Magnetic effect for interactive elements */
+    .magnetic {
+        transition: transform 0.3s ease;
+    }
+
+    .magnetic:hover {
+        transform: scale(1.05);
+    }
+
+    .dark body {
+        color: #f0f6fc;
+        background-color: #0d1117;
+    }
+
+    /* Service company typography */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .font-display {
+        font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-weight: 700;
+    }
+
+    /* GitHub-style scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f6f8fa;
+    }
+
+    .dark ::-webkit-scrollbar-track {
+        background: #21262d;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #d0d7de;
+        border-radius: 6px;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+        background: #30363d;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #a8b2ba;
+    }
+
+    .dark ::-webkit-scrollbar-thumb:hover {
+        background: #484f58;
+    }
+
+    /* Fix for fixed header overlap */
+    section[id="home"] {
+        padding-top: 80px;
+    }
+
+    section:not([id="home"]) {
+        scroll-margin-top: 80px;
+    }
+}
+
+@layer components {
+
+    /* GitHub-style buttons */
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#238636] border border-transparent rounded-md hover:bg-[#2ea043] focus:outline-none focus:ring-2 focus:ring-[#238636] focus:ring-offset-2 transition-colors duration-200;
+    }
+
+    .dark .btn-primary {
+        @apply bg-[#238636] hover:bg-[#2ea043];
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-[#24292f] bg-[#f6f8fa] border border-[#d0d7de] rounded-md hover:bg-[#f3f4f6] focus:outline-none focus:ring-2 focus:ring-[#0969da] focus:ring-offset-2 transition-colors duration-200;
+    }
+
+    .dark .btn-secondary {
+        @apply text-[#f0f6fc] bg-[#21262d] border-[#30363d] hover:bg-[#30363d];
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-[#24292f] bg-transparent border border-[#d0d7de] rounded-md hover:bg-[#f6f8fa] focus:outline-none focus:ring-2 focus:ring-[#0969da] focus:ring-offset-2 transition-colors duration-200;
+    }
+
+    .dark .btn-outline {
+        @apply text-[#f0f6fc] border-[#30363d] hover:bg-[#21262d];
+    }
+
+    /* GitHub-style cards */
+    .card {
+        @apply bg-white border border-[#d0d7de] rounded-lg shadow-sm;
+    }
+
+    .dark .card {
+        @apply bg-[#161b22] border-[#30363d];
+    }
+
+    .card-header {
+        @apply px-6 py-4 border-b border-[#d0d7de] bg-[#f6f8fa] rounded-t-lg;
+    }
+
+    .dark .card-header {
+        @apply border-[#30363d] bg-[#0d1117];
+    }
+
+    .card-body {
+        @apply px-6 py-4;
+    }
+
+    /* GitHub-style navigation */
+    .nav-link {
+        @apply text-[#24292f] hover:text-[#0969da] px-3 py-2 text-sm font-medium transition-colors duration-200;
+    }
+
+    .dark .nav-link {
+        @apply text-[#f0f6fc] hover:text-[#58a6ff];
+    }
+
+    /* GitHub-style form elements */
+    .form-input {
+        @apply block w-full px-3 py-2 text-sm border border-[#d0d7de] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0969da] focus:border-[#0969da] transition-colors duration-200;
+    }
+
+    .dark .form-input {
+        @apply bg-[#0d1117] border-[#30363d] text-[#f0f6fc] focus:ring-[#58a6ff] focus:border-[#58a6ff];
+    }
+
+    /* GitHub-style badges */
+    .badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    }
+
+    .badge-primary {
+        @apply bg-[#dbeafe] text-[#1e40af];
+    }
+
+    .dark .badge-primary {
+        @apply bg-[#1e3a8a] text-[#93c5fd];
+    }
+
+    .badge-success {
+        @apply bg-[#dcfce7] text-[#166534];
+    }
+
+    .dark .badge-success {
+        @apply bg-[#14532d] text-[#86efac];
+    }
+
+    /* GitHub-style code blocks */
+    .code-block {
+        @apply bg-[#f6f8fa] border border-[#d0d7de] rounded-md p-4 font-mono text-sm;
+    }
+
+    .dark .code-block {
+        @apply bg-[#0d1117] border-[#30363d];
+    }
+
+    /* Container utilities */
+    .container-max {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .section-padding {
+        @apply py-16;
+    }
+
+    /* GitHub-style hover effects */
+    .hover-card {
+        @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+    }
+
+    .dark .hover-card {
+        @apply hover:shadow-2xl;
+    }
+}
