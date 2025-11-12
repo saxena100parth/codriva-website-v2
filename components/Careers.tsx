@@ -192,7 +192,7 @@ const Careers = () => {
                         Join Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">Team</span>
                     </h2>
                     <p className="careers-text text-xl text-[#656d76] dark:text-[#8b949e] max-w-3xl mx-auto">
-                        Be part of a team that's building the future of technology. We're always looking for
+                        Be part of a team that&rsquo;s building the future of technology. We&apos;re always looking for
                         talented individuals who are passionate about innovation and creating impact.
                     </p>
                 </div>
@@ -271,10 +271,10 @@ const Careers = () => {
                 {/* CTA Section */}
                 <div className="mt-20 text-center">
                     <h3 className="text-2xl font-bold text-[#24292f] dark:text-[#f0f6fc] mb-4">
-                        Don't see a role that fits?
+                        Don&apos;t see a role that fits?
                     </h3>
                     <p className="text-[#656d76] dark:text-[#8b949e] mb-8">
-                        Send us your resume anyway! We're always looking for talented people to join our team.
+                        Send us your resume anyway! We&apos;re always looking for talented people to join our team.
                     </p>
                     <button className="btn-outline">
                         Send Open Application

@@ -214,7 +214,7 @@ const Portfolio = () => {
                         Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">Portfolio</span>
                     </h2>
                     <p className="portfolio-text text-xl text-[#656d76] dark:text-[#8b949e] max-w-3xl mx-auto mb-8">
-                        Explore our recent projects and see how we've helped businesses
+                        Explore our recent projects and see how we&apos;ve helped businesses
                         transform their digital presence.
                     </p>
 
@@ -299,8 +299,8 @@ const Portfolio = () => {
                             Have a project in mind?
                         </h3>
                         <p className="text-[#656d76] dark:text-[#8b949e] mb-6">
-                            Let's work together to create something amazing.
-                            We're always excited to take on new challenges.
+                            Let&apos;s work together to create something amazing.
+                            We&apos;re always excited to take on new challenges.
                         </p>
                         <button
                             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}

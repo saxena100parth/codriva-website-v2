@@ -10,7 +10,7 @@ export default function NotFound() {
                         Oops! Page Not Found
                     </h1>
                     <p className="text-xl text-[#656d76] dark:text-[#8b949e] mb-8 leading-relaxed">
-                        The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
+                        The page you&apos;re looking for doesn&apos;t exist. It might have been moved, deleted, or you entered the wrong URL.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/" className="btn-primary text-lg px-8 py-3">

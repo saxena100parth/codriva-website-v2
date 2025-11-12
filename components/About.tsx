@@ -220,7 +220,7 @@ const About = () => {
                         About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">Codriva</span>
                     </h2>
                     <p className="about-text text-xl text-[#656d76] dark:text-[#8b949e] max-w-3xl mx-auto">
-                        We're a trusted technology partner specializing in custom software development,
+                        We&apos;re a trusted technology partner specializing in custom software development,
                         digital transformation, and innovative solutions that drive business growth.
                     </p>
                 </div>
@@ -233,7 +233,7 @@ const About = () => {
                         </h3>
                         <p className="about-text text-lg text-[#656d76] dark:text-[#8b949e] mb-6 leading-relaxed">
                             At Codriva, we believe in the power of technology to transform businesses.
-                            Our name combines "Code" with "Riva" (flow), representing our commitment
+                            Our name combines &ldquo;Code&rdquo; with &ldquo;Riva&rdquo; (flow), representing our commitment
                             to creating seamless, flowing digital solutions.
                         </p>
                         <p className="about-text text-lg text-[#656d76] dark:text-[#8b949e] mb-8 leading-relaxed">

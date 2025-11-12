@@ -206,8 +206,8 @@ const Contact = () => {
                         Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 dark:from-blue-400 dark:via-blue-500 dark:to-blue-600">Touch</span>
                     </h2>
                     <p className="contact-text text-xl text-[#656d76] dark:text-[#8b949e] max-w-3xl mx-auto">
-                        Ready to start your next project? We'd love to hear from you.
-                        Send us a message and we'll respond as soon as possible.
+                        Ready to start your next project? We&apos;d love to hear from you.
+                        Send us a message and we&apos;ll respond as soon as possible.
                     </p>
                 </div>
 
@@ -329,7 +329,7 @@ const Contact = () => {
                                     Contact Information
                                 </h3>
                                 <p className="text-[#656d76] dark:text-[#8b949e] mb-8 leading-relaxed">
-                                    We're here to help and answer any question you might have.
+                                    We&apos;re here to help and answer any question you might have.
                                     We look forward to hearing from you.
                                 </p>
                             </div>

@@ -261,7 +261,7 @@ const Services = () => {
               Ready to transform your business?
             </h3>
             <p className="text-[#656d76] dark:text-[#8b949e] mb-6">
-              Let's discuss how our comprehensive technology services can help you achieve your goals and drive innovation.
+              Let&apos;s discuss how our comprehensive technology services can help you achieve your goals and drive innovation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
