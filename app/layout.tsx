@@ -4,10 +4,10 @@ import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { Providers } from '@/components/Providers'
-import CustomCursor from '@/components/CustomCursor'
-import BackgroundCursorEffects from '@/components/BackgroundCursorEffects'
-import CursorTrail from '@/components/CursorTrail'
-import MagneticCursor from '@/components/MagneticCursor'
+// import CustomCursor from '@/components/CustomCursor'
+// import BackgroundCursorEffects from '@/components/BackgroundCursorEffects'
+// import CursorTrail from '@/components/CursorTrail'
+// import MagneticCursor from '@/components/MagneticCursor'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +22,13 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'en_US',
     },
+     icons: {
+        icon: [
+            { url: '/images/favicon.jpeg', type: 'image/jpeg', sizes: '32x32' },
+            { url: '/favicon.ico', sizes: '32x32' }
+        ],
+        apple: { url: '/images/favicon.jpeg', sizes: '32x32' },
+    },
     metadataBase: new URL('https://codriva.com'),
 }
 
@@ -34,10 +41,10 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <Providers>
-                    <CustomCursor />
+                    {/* <CustomCursor />
                     <BackgroundCursorEffects />
                     <CursorTrail />
-                    <MagneticCursor />
+                    <MagneticCursor /> */}
                     <Navigation />
                     <main>{children}</main>
                     <Footer />

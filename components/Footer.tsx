@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -85,12 +86,19 @@ const Footer = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
                         {/* Company Info */}
                         <div className="lg:col-span-2">
-                            <div className="flex items-center space-x-3 mb-4">
-                                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
-                                    <span className="text-white font-bold text-lg font-display">C</span>
-                                </div>
-                                <span className="text-2xl font-bold font-display">Codriva</span>
-                            </div>
+                            <a
+                                href="#home"
+                                onClick={(e) => { e.preventDefault(); scrollToSection('#home') }}
+                                className="flex items-center space-x-3 group mb-4"
+                            >
+                                <Image
+                                    src="/images/codriva-logo.svg"
+                                    alt="Codriva Logo"
+                                    width={160}
+                                    height={160}
+                                    className="w-200 h-200 rounded-lg object-contain group-hover:scale-105 transition-all duration-300"
+                                />
+                            </a>
                             <p className="text-[#8b949e] mb-6 leading-relaxed">
                                 Your trusted technology partner. We deliver custom software solutions,
                                 digital transformation services, and innovative technology consulting.

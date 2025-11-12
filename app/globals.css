@@ -16,7 +16,7 @@
         background-color: #ffffff;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        cursor: none;
+        /* cursor: none; */
         /* Hide default cursor */
     }
 
@@ -29,14 +29,14 @@
     }
 
     /* Custom cursor styles */
-    .custom-cursor {
+    /* .custom-cursor {
         pointer-events: none;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 9999;
         mix-blend-mode: difference;
-    }
+    } */
 
     /* Magnetic effect for interactive elements */
     .magnetic {

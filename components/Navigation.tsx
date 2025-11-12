@@ -4,10 +4,10 @@ import React, { useState, useEffect } from 'react'
 import SimpleThemeToggle from './SimpleThemeToggle'
 
 const navItems = [
-    { name: 'Features', href: '#features' },
+    { name: 'Careers', href: '#careers' },
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'industries', href: '#portfolio' },
     { name: 'Contact', href: '#contact' },
 ]
 
@@ -34,7 +34,7 @@ const Navigation = () => {
 
     return (
         <nav className={`fixed w-full z-50 transition-all duration-200 ${isScrolled
-            ? 'bg-white/80 dark:bg-[#0d1117]/80 backdrop-blur-md border-b border-[#d0d7de] dark:border-[#30363d]'
+            ? 'bg-white/95 dark:bg-[#0d1117]/95 backdrop-blur-md border-b border-[#d0d7de] dark:border-[#30363d]'
             : 'bg-transparent'
             }`}>
             <div className="container-max">
@@ -46,12 +46,11 @@ const Navigation = () => {
                             onClick={(e) => { e.preventDefault(); scrollToSection('#home') }}
                             className="flex items-center space-x-3 group"
                         >
-                            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                                <span className="text-white font-bold text-lg font-display">C</span>
-                            </div>
-                            <span className="text-2xl font-bold text-[#24292f] dark:text-[#f0f6fc] font-display group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                                Codriva
-                            </span>
+                            <img 
+                                src="/images/codriva-logo.svg" 
+                                alt="Codriva Logo" 
+                                className="w-40 h-40 object-contain group-hover:scale-105 transition-all duration-300"
+                            />
                         </a>
                     </div>
 
@@ -76,7 +75,7 @@ const Navigation = () => {
                             onClick={() => scrollToSection('#contact')}
                             className="btn-primary"
                         >
-                            Get Started
+                            Contact Us
                         </button>
 
                         {/* Mobile menu button */}
@@ -93,7 +92,7 @@ const Navigation = () => {
 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
-                    <div className="md:hidden border-t border-[#d0d7de] dark:border-[#30363d] bg-white dark:bg-[#0d1117]">
+                    <div className="md:hidden border-t border-[#d0d7de] dark:border-[#30363d] bg-white/95 dark:bg-[#0d1117]/95 backdrop-blur-md">
                         <div className="px-2 pt-2 pb-3 space-y-1">
                             {navItems.map((item) => (
                                 <a

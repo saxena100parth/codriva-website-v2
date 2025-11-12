@@ -38,115 +38,164 @@ const About = () => {
     const featuresRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const ctx = gsap.context(() => {
-                // Enhanced title animation with dramatic effect
-                gsap.fromTo(titleRef.current, {
-                    opacity: 0,
-                    y: 80,
-                    scale: 0.8,
-                    rotationX: 45
-                }, {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    rotationX: 0,
-                    duration: 1.2,
-                    ease: 'back.out(1.7)',
-                    scrollTrigger: {
-                        trigger: titleRef.current,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse'
-                    }
-                })
+        if (typeof window === 'undefined') return;
 
-                // Enhanced content animation with stagger
-                gsap.fromTo(contentRef.current, {
-                    opacity: 0,
-                    y: 60,
-                    scale: 0.9
-                }, {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 1,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: contentRef.current,
-                        start: 'top 80%',
-                        toggleActions: 'play none none reverse'
-                    }
-                })
-
-                // Enhanced feature cards with 3D effect
-                gsap.fromTo('.feature-card', {
-                    opacity: 0,
-                    y: 50,
-                    scale: 0.8,
-                    rotationY: 15
-                }, {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    rotationY: 0,
-                    duration: 0.8,
-                    ease: 'power3.out',
-                    stagger: {
-                        amount: 0.6,
-                        from: "start"
-                    },
-                    scrollTrigger: {
-                        trigger: featuresRef.current,
-                        start: 'top 80%',
-                        toggleActions: 'play none none reverse'
-                    }
-                })
-
-                // Add hover animations to feature cards
-                gsap.utils.toArray('.feature-card').forEach((card: any) => {
-                    card.addEventListener('mouseenter', () => {
-                        gsap.to(card, {
-                            scale: 1.05,
-                            y: -10,
-                            duration: 0.3,
-                            ease: 'power2.out'
-                        })
-                    })
-
-                    card.addEventListener('mouseleave', () => {
-                        gsap.to(card, {
-                            scale: 1,
-                            y: 0,
-                            duration: 0.3,
-                            ease: 'power2.out'
-                        })
-                    })
-                })
-
-                // Text reveal animation
-                gsap.utils.toArray('.about-text').forEach((text: any) => {
-                    gsap.fromTo(text, {
+        const ctx = gsap.context(() => {
+            const cards = gsap.utils.toArray('.feature-card');
+            
+            // Function to animate feature cards in with stagger
+            const showFeatureCards = () => {
+                gsap.fromTo(cards, 
+                    {
                         opacity: 0,
                         y: 30,
-                        scale: 0.9
-                    }, {
+                        scale: 0.95,
+                        rotationX: 5
+                    },
+                    {
                         opacity: 1,
                         y: 0,
                         scale: 1,
+                        rotationX: 0,
                         duration: 0.8,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: text,
-                            start: 'top 85%',
-                            toggleActions: 'play none none reverse'
-                        }
-                    })
+                        stagger: {
+                            amount: 0.4,
+                            from: "start"
+                        },
+                        ease: "power3.out"
+                    }
+                );
+            };
+
+            // Immediately show cards when component mounts
+            showFeatureCards();
+
+            // ScrollTrigger for maintaining feature cards visibility
+            const featuresTrigger = ScrollTrigger.create({
+                trigger: ".card",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse",
+                onEnter: showFeatureCards,
+                onLeave: () => {
+                    gsap.to(cards, {
+                        opacity: 0,
+                        y: -30,
+                        scale: 0.95,
+                        stagger: {
+                            amount: 0.2,
+                            from: "end"
+                        },
+                        duration: 0.5
+                    });
+                }
+            });
+
+            // Setup other animations with ScrollTrigger
+            const triggers = [
+                ScrollTrigger.create({
+                    trigger: titleRef.current,
+                    start: 'top 85%',
+                    onEnter: () => {
+                        gsap.to(titleRef.current, {
+                            opacity: 1,
+                            y: 0,
+                            scale: 1,
+                            duration: 0.6,
+                            ease: 'power2.out'
+                        });
+                    },
+                    onLeave: () => {
+                        gsap.to(titleRef.current, {
+                            opacity: 0,
+                            y: -50,
+                            scale: 0.8,
+                            duration: 0.4,
+                            clearProps: "all"
+                        });
+                    }
+                }),
+                ScrollTrigger.create({
+                    trigger: contentRef.current,
+                    start: 'top 80%',
+                    onEnter: () => {
+                        gsap.to(contentRef.current, {
+                            opacity: 1,
+                            y: 0,
+                            scale: 1,
+                            duration: 0.6,
+                            ease: 'power2.out'
+                        });
+                    },
+                    onLeave: () => {
+                        gsap.to(contentRef.current, {
+                            opacity: 0,
+                            y: -50,
+                            scale: 0.8,
+                            duration: 0.4,
+                            clearProps: "all"
+                        });
+                    }
                 })
+            ];
 
-            }, sectionRef)
+            // Handle feature card hover effects
+            cards.forEach((card: any) => {
+                const hoverTl = gsap.timeline({ paused: true });
+                
+                hoverTl
+                    .to(card, {
+                        scale: 1.05,
+                        y: -5,
+                        duration: 0.2,
+                        ease: 'power2.out'
+                    });
 
-            return () => ctx.revert()
-        }
+                card.addEventListener('mouseenter', () => hoverTl.play());
+                card.addEventListener('mouseleave', () => hoverTl.reverse());
+                
+                // Store timeline for cleanup
+                card._hoverTl = hoverTl;
+            });
+
+            // Cleanup function
+            return () => {
+                // Kill all ScrollTriggers
+                [featuresTrigger, ...triggers].forEach(trigger => {
+                    if (trigger) trigger.kill();
+                });
+
+                // Kill all hover animations and remove listeners
+                cards.forEach((card: any) => {
+                    if (card._hoverTl) {
+                        card._hoverTl.kill();
+                    }
+                });
+
+                // Reset all animations immediately
+                gsap.set([
+                    titleRef.current,
+                    contentRef.current,
+                    '.feature-card',
+                    '.about-text'
+                ], {
+                    clearProps: "all"
+                });
+
+                // Kill any remaining tweens
+                gsap.killTweensOf([
+                    titleRef.current,
+                    contentRef.current,
+                    '.feature-card',
+                    '.about-text'
+                ]);
+            };
+        }, sectionRef);
+
+        // Return cleanup function
+        return () => {
+            ctx.revert();
+        };
     }, [])
 
     return (
@@ -211,8 +260,12 @@ const About = () => {
                         <div className="card p-8">
                             <div className="grid grid-cols-2 gap-6">
                                 {features.map((feature, index) => (
-                                    <div key={index} className="feature-card text-center p-6 hover-card rounded-lg">
-                                        <div className="text-4xl mb-4">{feature.icon}</div>
+                                    <div 
+                                        key={index} 
+                                        className="feature-card text-center p-6 hover-card rounded-lg bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm shadow-lg dark:shadow-slate-800/30"
+                                        style={{ opacity: 0 }} // Set initial opacity
+                                    >
+                                        <div className="text-4xl mb-4 transform transition-transform duration-300 group-hover:scale-110">{feature.icon}</div>
                                         <h4 className="font-semibold text-[#24292f] dark:text-[#f0f6fc] mb-2">
                                             {feature.title}
                                         </h4>

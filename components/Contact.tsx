@@ -213,7 +213,7 @@ const Contact = () => {
 
                 <div className="grid lg:grid-cols-2 gap-16">
                     {/* Contact Form */}
-                    <div ref={formRef}>
+                    <div ref={infoRef}>
                         <div className="card p-8">
                             <h3 className="text-2xl font-bold text-[#24292f] dark:text-[#f0f6fc] mb-6">
                                 Send us a message
@@ -359,9 +359,8 @@ const Contact = () => {
                                     Business Hours
                                 </h4>
                                 <div className="space-y-2 text-sm text-[#656d76] dark:text-[#8b949e]">
-                                    <div>Monday - Friday: 9:00 AM - 6:00 PM</div>
-                                    <div>Saturday: 10:00 AM - 4:00 PM</div>
-                                    <div>Sunday: Closed</div>
+                                    <div>Monday - Friday: 9:30 AM - 6:30 PM</div>
+                                    <div>Saturday & Sunday: Closed</div>
                                 </div>
                             </div>
                         </div>
